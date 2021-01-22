@@ -1,0 +1,46 @@
+repos:
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v3.2.0
+  hooks:
+  - id: trailing-whitespace
+    exclude: .gitignore
+  - id: end-of-file-fixer
+  - id: check-added-large-files
+  - id: check-yaml
+- repo: https://github.com/codespell-project/codespell
+  rev: v1.17.1
+  hooks:
+  - id: codespell
+    args:
+    - --quiet-level=2
+    - --check-filenames
+    - --check-hidden
+- repo: https://github.com/adrienverge/yamllint.git
+  rev: v1.24.2
+  hooks:
+  - id: yamllint
+- repo: https://github.com/macisamuele/language-formatters-pre-commit-hooks.git
+  rev: v1.5.0
+  hooks:
+  - id: pretty-format-yaml
+    args: [--autofix, --indent, '2']
+- repo: https://github.com/igorshubovych/markdownlint-cli
+  rev: v0.23.2
+  hooks:
+  - id: markdownlint
+- repo: https://github.com/asottile/reorder_python_imports
+  rev: v2.3.5
+  hooks:
+  - id: reorder-python-imports
+- repo: https://github.com/asottile/pyupgrade
+  rev: v2.7.2
+  hooks:
+  - id: pyupgrade
+- repo: https://github.com/psf/black
+  rev: 20.8b1
+  hooks:
+  - id: black
+- repo: https://github.com/asottile/setup-cfg-fmt
+  rev: v1.11.0
+  hooks:
+  - id: setup-cfg-fmt
