@@ -78,7 +78,15 @@ solution.solution('5')
 Output:
     19
 """
+from math import floor
+from math import sqrt
+
+
+def bs(n, r):
+    if n == 1:
+        return floor(n * r)
+    return floor(n * r) + bs(n - 1, r)
 
 
 def solution(s):
-    pass
+    return bs(s, sqrt(2))
