@@ -15,6 +15,7 @@ repos:
     - --quiet-level=2
     - --check-filenames
     - --check-hidden
+    - --ignore-words=.codespell-ignore
 - repo: https://github.com/adrienverge/yamllint.git
   rev: v1.24.2
   hooks:
