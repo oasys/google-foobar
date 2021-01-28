@@ -80,7 +80,7 @@ Output:
 """
 # https://en.wikipedia.org/wiki/Beatty_sequence
 # https://math.stackexchange.com/questions/2052179/how-to-find-sum-i-1n-left-lfloor-i-sqrt2-right-rfloor-a001951-a-beatty-s
-from math import sqrt
+from decimal import *
 
 
 def S(a, n):
@@ -91,4 +91,5 @@ def S(a, n):
 
 
 def solution(s):
-    return str(S(sqrt(2), int(s)))
+    getcontext().prec = 101
+    return str(S(Decimal(2).sqrt(), int(s)))
