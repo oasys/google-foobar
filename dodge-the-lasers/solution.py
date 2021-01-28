@@ -78,15 +78,17 @@ solution.solution('5')
 Output:
     19
 """
-from math import floor
+# https://en.wikipedia.org/wiki/Beatty_sequence
+# https://math.stackexchange.com/questions/2052179/how-to-find-sum-i-1n-left-lfloor-i-sqrt2-right-rfloor-a001951-a-beatty-s
 from math import sqrt
 
 
-def bs(n, r):
-    if n == 1:
-        return floor(n * r)
-    return floor(n * r) + bs(n - 1, r)
+def S(a, n):
+    if n == 0:
+        return 0
+    np = int((a - 1) * n)
+    return n * np + n * (n + 1) / 2 - np * (np + 1) / 2 - S(a, np)
 
 
 def solution(s):
-    return bs(s, sqrt(2))
+    return str(S(sqrt(2), int(s)))
