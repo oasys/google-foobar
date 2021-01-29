@@ -5,13 +5,15 @@
 
 ## What is the Google Foobar Challenge
 
-Google Foobar challenge is a set of programming challenges offered at
-[url].   It is reported that Google has used this as recruiting tool
-to find candidate developers to hire.  (Indeed, there's a `recruitme`
-command available once you reach the upper levels.)  It consists of
-a (somewhat contrived) sci-fi adventure story where you are the hero
-trying to stop an evil antagonist from destroying a planet solving
-programming challenges of increasing difficulty to advance the plot.
+[Google Foobar challenge][foobar] is a set of programming challenges.
+It is reported that Google has used this as recruiting tool to find
+candidate developers to hire.  (Indeed, there's a `recruitme` command
+available once you reach the upper levels.)  It consists of a (somewhat
+contrived) sci-fi adventure story where you are the hero trying to
+stop an evil antagonist from destroying a planet solving programming
+challenges of increasing difficulty to advance the plot.
+
+[foobar]: https://foobar.withgoogle.com
 
 ## Disclaimer
 
