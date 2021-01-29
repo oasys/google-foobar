@@ -112,7 +112,7 @@ def multiply(a, b):
 
 
 def invert(a):
-    # https://github.com/Thommves/Matrixmnverse/blob/master/Matrixmnversion.py
+    # https://github.com/ThomIves/MatrixInverse/blob/master/MatrixInversion.py
     b = identity(a)
     for d in xrange(len(a)):
         to1 = fraction(1, a[d][d])
@@ -142,7 +142,6 @@ def solution(m):
     The provided data is almost in canonical form, P.  With this matrix,
     we can then use its properties to determine B, the probabilities of
     ending up in a particular absorbing (terminal) state.
-
               _       _
              |         |
              |  Q   R  |
@@ -152,7 +151,6 @@ def solution(m):
 
                         -1
         B =  ( I  -  Q )   * R
-
     """
 
     terminal = [not any(row) for row in m]
