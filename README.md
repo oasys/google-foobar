@@ -1,6 +1,8 @@
 
 # [Google Foobar Challenge](https://github.com/oasys/google-foobar)
 
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+
 &copy; 2021 Jason Lavoie
 
 ## What is the Google Foobar Challenge
