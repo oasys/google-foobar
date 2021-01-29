@@ -1,7 +1,7 @@
 
 # [Google Foobar Challenge](https://github.com/oasys/google-foobar)
 
-&copy; 2020 Jason Lavoie
+&copy; 2021 Jason Lavoie
 
 ## What is the Google Foobar Challenge
 
