@@ -732,22 +732,45 @@ seemed to pan out.  I worked for a bit of modeling the room as a matrix
 and translating it to a larger field with reflections, but the code
 proved too complicated, so I went to bed.
 
-Inspiration struck while walking the dog the next morning.  I projected
-points of all the possible reflected targets (either person) out into
-2D space, and calculated the distance (by use of the [Pythagorean
+Inspiration struck while walking the dog the next morning.
+I came up with a solutino where I projected points of all
+the possible reflected targets (either person) out into 2D
+space, and calculated the distance (by use of the [Pythagorean
 theorem](https://en.wikipedia.org/wiki/Pythagorean_theorem)) and the
 bearing (using `atan2()`) back to the hero's original coordinates.
-Ignoring any "hits" that intersected a closer target left only the
-ones that we needed to count.
+Ignoring any "hits" that intersected a closer target left only the ones
+that we needed to count.
 
 By originating the "room" at `[0, 0]` in the plane, I only had to
 calculate points for the first quadrant then change the sign of the
-`[x, y]` coordinates for each of the other quadrants.  I kept a running
-dictionary of hits indexed by the bearing, and skipped those that already
-had a shorter distance (as the beam would've collided with that target
-first.)  To keep from using two dicts, I "flagged" the hero's distances
-by storing them as a negative number -- that way I could still use them
-to compare (with `abs()`, but could filter them from the final count.
+`[x, y]` coordinates for each of the other quadrants.  To calculate the
+coordinates for each point, I imagined tesselating the rooms in a grid.
+Odd-numbered rooms will be mirrored and the new coordinate in one of
+these rooms will be the dimension of the room minus the original coordinate.
+
+```text
+         0
+         |
+         | r=0   r=1   r=2   r=3
+         |
+         |...X. .X... ...X. .X...
+         |..... ..... ..... .....  r=1
+         |.O... ...O. .O... ...O.
+         |..... ..... ..... .....
+         |
+         |..... ..... ..... .....
+         |.O... ...O. .O... ...O.  r=0
+         |..... ..... ..... .....
+         |...X. .X... ...X. .X...
+         +-----------------------------0
+```
+
+I kept a running dictionary of hits indexed by the bearing, and skipped
+those that already had a shorter distance (as the beam would've collided
+with that target first.)  To keep from using two dicts, I "flagged" the
+hero's distances by storing them as a negative number -- that way I
+could still use them to compare (using `abs()`), but was able to filter
+them from the final count.
 
 I originally intended to replace `atan2()` with a function to return a
 vector of integers between the two points, but the code I wrote for that
