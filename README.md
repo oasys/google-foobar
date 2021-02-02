@@ -977,6 +977,7 @@ username.
 
 from base64 import b64decode
 from getpass import getpass
+from itertools import cycle
 
 message = """
 EUYAGg1NCRIFSElfSkYUHQtPGEZaT04GBQ0fCg9JGQRRT1NFTQQAGwtLAQQSSEVFTQQVCQFcGBJR
@@ -985,7 +986,7 @@ SxIXCQxCRkFUCQFBS0FMT04SAw9SSBM=
 """
 
 key = getpass()
-for m, k in zip(b64decode(message), key * (len(message) // len(key) + 1)):
+for m, k in zip(b64decode(message), cycle(key)):
     print(chr(m ^ ord(k)), end="")
 print()
 
