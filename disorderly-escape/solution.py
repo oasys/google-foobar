@@ -4,7 +4,7 @@ Disorderly Escape
 
 Oh no! You've managed to free the bunny workers and escape Commander
 Lambdas exploding space station, but Lambda's team of elite starfighters
-has flanked your ship. If you dont jump to hyperspace, and fast, youll
+has flanked your ship. If you dont jump to hyperspace, and fast, you'll
 be shot out of the sky!
 
 Problem is, to avoid detection by galactic law enforcement, Commander
@@ -125,7 +125,42 @@ solution.solution(2, 2, 2)
 Output:
     7
 """
+from collections import Counter
+from fractions import gcd
+from itertools import product
+from math import factorial
+from operator import mul
+
+
+def partitions(n, i=1):
+    # generate all partitions for integer n
+    # https://stackoverflow.com/a/44209393
+    yield (n,)
+    for i in range(i, n // 2 + 1):
+        for p in partitions(n - i, i):
+            yield (i,) + p
+
+
+def cyclecount(partitions):
+    def prod(factors):
+        return reduce(mul, factors, 1)
+
+    return prod(
+        [
+            factorial(n) // prod([a ** b * factorial(b) for a, b in Counter(p).items()])
+            for p, n in partitions
+        ]
+    )
 
 
 def solution(w, h, s):
-    pass
+    return str(
+        sum(
+            [
+                cyclecount([(pw, w), (ph, h)])
+                * s ** sum([gcd(a, b) for a, b in product(pw, ph)])
+                for pw, ph in product(partitions(w), partitions(h))
+            ]
+        )
+        // (factorial(w) * factorial(h))
+    )
