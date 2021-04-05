@@ -706,6 +706,9 @@ def solution(map):
 
 ```python
 
+from itertools import combinations
+
+
 def solution(num_buns, num_required):
     c = list(combinations(range(num_buns), num_buns - (num_required - 1)))
     return [
